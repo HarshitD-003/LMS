@@ -6,27 +6,16 @@ import { TbPasswordFingerprint } from "react-icons/tb";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import { IoMdLogOut } from "react-icons/io";
 import Avatar from '../../images/Avatar.png'
+import { TbBracketsAngle } from "react-icons/tb";
+import { MdOutlineMonitor } from "react-icons/md";
 
-function FacultyHeader() {
+function AdminHeader() {
 
     const [isActive, setActive] = useState("false");
-    const [Leavehide,setLeave_drop]=useState({display: 'none'});
+
     const ham = () => {
         setActive(!isActive);
     };
-    const dropdown1=()=>
-    {
-        setLeave_drop({display:'block'});
-
-    };
-    const dropdown2=()=>
-    {
-        console.log(Leavehide);
-        setLeave_drop({display:'none'});
-        console.log(Leavehide);
-
-    };
-
 
     return (
 
@@ -37,21 +26,19 @@ function FacultyHeader() {
                     <span className={isActive ? `${styles.line}` : `${styles.line} ${styles.isactive}`}></span>
                     <span className={isActive ? `${styles.line}` : `${styles.line} ${styles.isactive}`}></span>
                 </div>
-                <div className={`${styles.htitlediv}`}><h1 className={`${styles.htitle}`}>LNMIIT| FACULTY</h1></div>
+                <div className={`${styles.htitlediv}`}><h1 className={`${styles.htitle}`}> ELMS| ADMIN</h1></div>
 
             </div>
             <div className={isActive ? `${styles.sidebar} ` : `${styles.sidebar} ${styles.navactive}`}>
                 <div className={`${styles.sidetext}`}>
-                    <div className={`${styles.userlogo}`}><img src={Avatar} alt="User" className={`${styles.userimg}`}></img><h4>Username</h4></div>
-                    <ul>
-                        <li ><a className={`${styles.tabs}`} href="/"><div><MdPermContactCalendar /></div> <div>My Profile</div></a></li>
+                    <div className={`${styles.userlogo}`}><img src={Avatar} alt="User" className={`${styles.userimg}`}></img><h4>Admin</h4></div>
+                    <ul className={`${styles.tabs1}`}>
+                        <li><a className={`${styles.tabs}`} href="/"><TbPasswordFingerprint /> Dashboard</a></li>
+                        <li><a className={`${styles.tabs}`} href="/"><BsFillGrid3X3GapFill /> Department</a></li>
+                        <li><a className={`${styles.tabs}`} href="/"><TbBracketsAngle /> Leave Type</a></li>
+                        <li ><a className={`${styles.tabs}`} href="/"><div><MdPermContactCalendar /></div> <div>Employees</div></a></li>
+                        <li><a className={`${styles.tabs}`} href="/"><MdOutlineMonitor /> Leave Management</a></li>
                         <li><a className={`${styles.tabs}`} href="/"><TbPasswordFingerprint /> Change Password</a></li>
-                        <li  onMouseOver={dropdown1} onMouseLeave={dropdown2}><a className={`${styles.tabs} ${styles.dropdown}`} href="/"><BsFillGrid3X3GapFill  /> Leaves</a>
-                            <div style={Leavehide} className={`${styles.dropdown_cont}`}>
-                                <a href="/">Leave History</a>
-                                <a href="/">Apply Leave</a>
-                            </div>
-                        </li>
                         <li><a className={`${styles.tabs}`} href="/"><IoMdLogOut /> Sign Out</a></li>
 
                     </ul>
@@ -63,4 +50,4 @@ function FacultyHeader() {
     );
 };
 
-export default FacultyHeader;
+export default AdminHeader;
